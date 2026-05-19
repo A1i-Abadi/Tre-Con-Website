@@ -22,6 +22,11 @@ const consultants = [
     role: 'Engineering Partner',
     image: '/images/Dr-4.jpeg',
   },
+  {
+    name: 'Dr. Salman Alfardan',
+    role: 'Life coach',
+    image: '/images/Dr-5.jpeg',
+  },
 ];
 
 export default function Doctors() {
