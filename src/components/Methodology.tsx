@@ -1,11 +1,11 @@
 import {
   TbArrowRight,
   TbArrowDown,
-  TbAntenna,
+  TbActivity,
   TbCpu,
-  TbFilter,
-  TbChartLine,
+  TbWifi,
   TbDeviceDesktopAnalytics,
+  TbBolt,
 } from 'react-icons/tb';
 import { useReveal } from '../hooks/useReveal';
 import './Methodology.scss';
@@ -13,40 +13,40 @@ import './Methodology.scss';
 const pipelineSteps = [
   {
     num: '01',
-    label: 'Signal Input',
-    title: 'Electrode Placement & Acquisition',
+    label: 'Data Acquisition',
+    title: 'EMG & IMU Sensors',
     description:
-      'Color-coded ECG electrodes are placed on the subject to capture raw bioelectric signals from the cardiac muscle.',
+      'Real-time capture of muscle activity and kinematic motion using high-precision, low-cost wearable sensors.',
   },
   {
     num: '02',
-    label: 'Preprocessing',
-    title: 'Noise Filtering & Amplification',
+    label: 'Hardware Design',
+    title: '3D-Printed & Modular',
     description:
-      'The raw signal passes through a bandpass filter (0.5–100 Hz) and instrumentation amplifier to remove EMG interference and power-line noise.',
+      'A rigorously tested, modular 3D-printed wristband designed for everyday comfort, reliability, and durability.',
   },
   {
     num: '03',
-    label: 'Digitization',
-    title: 'ADC Conversion & Sampling',
+    label: 'Monitoring',
+    title: 'Web & Mobile Apps',
     description:
-      'Analog signals are digitized at 500 Hz sampling rate using a high-resolution ADC for precise waveform reproduction.',
+      'Seamless data synchronization to a dedicated Neurologist website and a Family monitoring mobile application.',
   },
   {
     num: '04',
-    label: 'Processing',
-    title: 'Feature Extraction & Analysis',
+    label: 'Therapy',
+    title: 'FES-Based Support',
     description:
-      'The digital signal is processed through our trained algorithms to extract P-QRS-T wave features and detect anomalies.',
+      'Targeted Functional Electrical Stimulation (FES) deployed automatically to suppress tremors based on real-time analysis.',
   },
 ];
 
 const diagramBlocks = [
-  { icon: <TbAntenna />, label: 'Sensor Input' },
-  { icon: <TbFilter />, label: 'Bandpass Filter' },
-  { icon: <TbCpu />, label: 'MCU Processing' },
-  { icon: <TbChartLine />, label: 'Feature Extract' },
-  { icon: <TbDeviceDesktopAnalytics />, label: 'Display Output' },
+  { icon: <TbActivity />, label: 'EMG & IMU' },
+  { icon: <TbCpu />, label: 'Processing' },
+  { icon: <TbWifi />, label: 'Wireless Tx' },
+  { icon: <TbDeviceDesktopAnalytics />, label: 'Web/App Monitor' },
+  { icon: <TbBolt />, label: 'FES Support' },
 ];
 
 export default function Methodology() {
@@ -57,10 +57,9 @@ export default function Methodology() {
       <div className="methodology__inner">
         <div className="methodology__header reveal">
           <span className="methodology__label">Technical Pipeline</span>
-          <h2 className="methodology__title">Methodology & Electrical Specs</h2>
+          <h2 className="methodology__title">Methodology & Architecture</h2>
           <p className="methodology__subtitle">
-            Biomedical signal acquisition and processing pipeline — from electrode
-            contact to diagnostic output.
+            A modular, low-cost wearable system for Parkinson’s tremor monitoring and FES-based treatment support.
           </p>
         </div>
 

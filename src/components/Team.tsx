@@ -4,22 +4,22 @@ import './Team.scss';
 
 const teamMembers = [
   {
-    name: 'Ali Abadi',
-    role: 'Hardware / Firmware Lead',
-    image: '/images/avatar-placeholder.png', // We'll generate this
-    linkedin: '#',
+    name: 'Mohammed Alhanoun',
+    role: 'Electrical Engineer',
+    image: '/images/avatar-placeholder.png',
+    linkedin: 'https://www.linkedin.com/in/mohammed-khalil-alhanoun-a7a8b127a?utm_source=share_via&utm_content=profile&utm_medium=member_android',
   },
   {
-    name: 'Sayed Hassan',
-    role: 'Signal Processing Engineer',
+    name: 'Ali Ahmed',
+    role: 'Electrical Engineer',
     image: '/images/avatar-placeholder.png',
-    linkedin: '#',
+    linkedin: 'https://www.linkedin.com/in/ali-altooq-969b19350?utm_source=share_via&utm_content=profile&utm_medium=member_android',
   },
   {
-    name: 'Muhammad',
-    role: 'Systems Integration',
+    name: 'Ahmed Hussain',
+    role: 'Electrical Engineer',
     image: '/images/avatar-placeholder.png',
-    linkedin: '#',
+    linkedin: 'https://www.linkedin.com/in/ahmed-abdulla-a97b17351?utm_source=share_via&utm_content=profile&utm_medium=member_android',
   },
 ];
 
