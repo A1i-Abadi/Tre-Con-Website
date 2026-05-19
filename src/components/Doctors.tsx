@@ -3,24 +3,24 @@ import './Doctors.scss';
 
 const consultants = [
   {
-    name: 'Dr. Jane Doe',
-    role: 'Medical Advisor',
-    image: '/images/doctor-placeholder.png', // Will generate
+    name: 'Dr. Ebrahim Mahdi',
+    role: 'Neuro Specialist',
+    image: '/images/Dr-1.jpeg',
   },
   {
-    name: 'Dr. John Smith',
-    role: 'Clinical Consultant',
-    image: '/images/doctor-placeholder.png', // Will generate
+    name: 'Dr. Mohammed A.nabi',
+    role: 'Physiotherapist - Impact Owner',
+    image: '/images/Dr-2.jpeg',
   },
   {
-    name: 'Dr. Emily Chen',
-    role: 'Cardiology Specialist',
-    image: '/images/doctor-placeholder.png', // Will generate
+    name: 'Dr. Mohammed Albin Falah',
+    role: 'Consultant Neurologist and Medical Director of the University Medical Center at King Abdullah Bin Abdulaziz Medical City',
+    image: '/images/Dr-3.jpeg',
   },
   {
-    name: 'Dept. of Biomedical Eng.',
-    role: 'University Affiliation',
-    image: '/images/dept-placeholder.png', // Will generate
+    name: 'Salmaniya Engineering Department',
+    role: 'Engineering Partner',
+    image: '/images/Dr-4.jpeg',
   },
 ];
 
@@ -45,18 +45,20 @@ export default function Doctors() {
               className="doctors__card reveal"
               style={{ transitionDelay: `${index * 0.1}s` }}
             >
-              <div className="doctors__avatar">
-                <div className="doctors__avatar-ring" />
+              <div className="doctors__photo">
+                <div className="doctors__photo-frame" />
                 <img
                   src={person.image}
                   alt={person.name}
-                  className="doctors__avatar-img"
+                  className="doctors__photo-img"
                   loading="lazy"
                 />
               </div>
               
-              <span className="doctors__role">{person.role}</span>
-              <h3 className="doctors__name">{person.name}</h3>
+              <div className="doctors__content">
+                <span className="doctors__role">{person.role}</span>
+                <h3 className="doctors__name">{person.name}</h3>
+              </div>
             </div>
           ))}
         </div>
