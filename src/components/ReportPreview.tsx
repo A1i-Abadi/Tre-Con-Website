@@ -6,37 +6,37 @@ import './ReportPreview.scss';
 const reportPages = [
   {
     id: 1,
-    title: 'Executive Summary',
+    title: 'System Design',
     image: '/images/report-page-1.png',
   },
   {
     id: 2,
-    title: 'System Architecture',
+    title: 'System Analysis',
     image: '/images/report-page-2.png',
   },
   {
     id: 3,
-    title: 'Hardware Schematics',
+    title: 'Cloud and Coding',
     image: '/images/report-page-3.png',
   },
   {
     id: 4,
-    title: 'PCB Layout Design',
+    title: 'Anti-Phase Control Law',
     image: '/images/report-page-4.png',
   },
   {
     id: 5,
-    title: 'Firmware Flowchart',
+    title: 'Safety Analysis',
     image: '/images/report-page-5.png',
   },
   {
     id: 6,
-    title: 'Signal Analysis Results',
+    title: 'Website',
     image: '/images/report-page-6.png',
   },
   {
     id: 7,
-    title: 'Conclusion & Future Work',
+    title: 'Blynk App',
     image: '/images/report-page-7.png',
   },
 ];
