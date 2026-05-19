@@ -1,0 +1,188 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.gallery {
+  @include section-padding;
+  position: relative;
+
+  &__inner {
+    @include container;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: $space-4xl;
+  }
+
+  &__label {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-sm;
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    color: $color-accent;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: $space-md;
+
+    &::before,
+    &::after {
+      content: '';
+      width: 30px;
+      height: 1px;
+      background: $color-border-accent;
+    }
+  }
+
+  &__title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: $color-text-primary;
+    margin-bottom: $space-md;
+  }
+
+  &__subtitle {
+    font-family: $font-body;
+    font-size: 1rem;
+    color: $color-text-secondary;
+    max-width: 550px;
+    margin: 0 auto;
+    font-weight: 400;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-xl;
+
+    @include respond-to(sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__item {
+    position: relative;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    border: 1px solid $color-border;
+    aspect-ratio: 4 / 3;
+    cursor: pointer;
+    transition: border-color $transition-normal, box-shadow $transition-normal, transform $transition-normal;
+
+    &:hover {
+      border-color: $color-border-accent-hover;
+      box-shadow: 0 0 30px $color-accent-glow, 0 12px 40px rgba(0, 0, 0, 0.5);
+      transform: translateY(-4px);
+
+      .gallery__image {
+        transform: scale(1.08);
+      }
+
+      .gallery__overlay {
+        opacity: 1;
+      }
+
+      .gallery__caption {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .gallery__tag {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    // Feature item (larger)
+    &--featured {
+      @include respond-to(sm) {
+        grid-column: span 2;
+      }
+
+      @include respond-to(lg) {
+        grid-column: span 2;
+        grid-row: span 2;
+        aspect-ratio: auto;
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(0, 0, 0, 0.4) 40%,
+      rgba(0, 0, 0, 0.1) 70%,
+      transparent 100%
+    );
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: $space-xl;
+  }
+
+  &__tag {
+    display: inline-flex;
+    align-self: flex-start;
+    font-family: $font-mono;
+    font-size: 0.6rem;
+    color: $color-accent;
+    background: rgba($color-accent, 0.15);
+    border: 1px solid $color-border-accent;
+    padding: $space-xs $space-sm;
+    border-radius: $radius-sm;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: $space-sm;
+    transform: translateY(10px);
+    opacity: 0;
+    transition: transform 0.4s ease 0.1s, opacity 0.4s ease 0.1s;
+  }
+
+  &__caption-title {
+    font-family: $font-display;
+    font-size: 0.85rem;
+    color: $color-accent;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: $space-xs;
+  }
+
+  &__caption {
+    font-family: $font-body;
+    font-size: 0.82rem;
+    color: $color-text-secondary;
+    line-height: 1.6;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.5s ease 0.15s, opacity 0.5s ease 0.15s;
+  }
+
+  // Corner scan frame
+  &__frame {
+    position: absolute;
+    inset: $space-md;
+    border: 1px solid transparent;
+    border-radius: $radius-sm;
+    pointer-events: none;
+    transition: border-color $transition-normal;
+
+    .gallery__item:hover & {
+      border-color: rgba($color-accent, 0.3);
+    }
+  }
+}

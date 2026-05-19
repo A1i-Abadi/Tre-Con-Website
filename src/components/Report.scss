@@ -1,0 +1,181 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.report {
+  @include section-padding;
+  position: relative;
+  background: $color-bg-secondary;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $color-border-accent, transparent);
+  }
+
+  &__inner {
+    @include container;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__card {
+    @include tech-card;
+    @include scan-line;
+    padding: $space-3xl $space-2xl;
+    text-align: center;
+    max-width: 700px;
+    width: 100%;
+    position: relative;
+
+    @include respond-to(md) {
+      padding: $space-4xl $space-3xl;
+    }
+  }
+
+  // Corner brackets
+  &__corner {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      background: $color-accent;
+      opacity: 0.4;
+      transition: opacity $transition-normal;
+    }
+
+    .report__card:hover &::before,
+    .report__card:hover &::after {
+      opacity: 0.8;
+    }
+
+    &--tl {
+      top: $space-lg;
+      left: $space-lg;
+      &::before { top: 0; left: 0; width: 20px; height: 1px; }
+      &::after { top: 0; left: 0; width: 1px; height: 20px; }
+    }
+
+    &--tr {
+      top: $space-lg;
+      right: $space-lg;
+      &::before { top: 0; right: 0; width: 20px; height: 1px; }
+      &::after { top: 0; right: 0; width: 1px; height: 20px; }
+    }
+
+    &--bl {
+      bottom: $space-lg;
+      left: $space-lg;
+      &::before { bottom: 0; left: 0; width: 20px; height: 1px; }
+      &::after { bottom: 0; left: 0; width: 1px; height: 20px; }
+    }
+
+    &--br {
+      bottom: $space-lg;
+      right: $space-lg;
+      &::before { bottom: 0; right: 0; width: 20px; height: 1px; }
+      &::after { bottom: 0; right: 0; width: 1px; height: 20px; }
+    }
+  }
+
+  &__icon {
+    font-size: 3rem;
+    color: $color-accent;
+    margin-bottom: $space-xl;
+    display: block;
+    filter: drop-shadow(0 0 15px rgba($color-accent, 0.4));
+  }
+
+  &__label {
+    font-family: $font-mono;
+    font-size: 0.7rem;
+    color: $color-accent;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: $space-sm;
+    display: block;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    color: $color-text-primary;
+    margin-bottom: $space-md;
+  }
+
+  &__desc {
+    font-size: 0.95rem;
+    color: $color-text-secondary;
+    max-width: 450px;
+    margin: 0 auto $space-2xl;
+    line-height: 1.7;
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-sm;
+    font-family: $font-display;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $color-bg-primary;
+    background: $color-accent;
+    border: 2px solid $color-accent;
+    padding: $space-md $space-2xl;
+    border-radius: $radius-md;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all $transition-normal;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: $z-base;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s ease;
+      z-index: -1;
+    }
+
+    &:hover {
+      background: transparent;
+      color: $color-accent;
+      box-shadow: 0 0 30px $color-accent-glow-strong, 0 0 60px $color-accent-glow;
+      transform: translateY(-2px);
+
+      &::before {
+        left: 100%;
+      }
+    }
+
+    svg {
+      font-size: 1.1rem;
+      transition: transform $transition-normal;
+    }
+
+    &:hover svg {
+      transform: translateY(-2px);
+    }
+  }
+
+  &__meta {
+    margin-top: $space-2xl;
+    font-family: $font-mono;
+    font-size: 0.7rem;
+    color: $color-text-muted;
+    letter-spacing: 0.1em;
+  }
+}

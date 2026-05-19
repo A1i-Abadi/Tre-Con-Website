@@ -1,0 +1,120 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.footer {
+  background: $color-bg-secondary;
+  border-top: 1px solid $color-border;
+  padding: $space-3xl 0 $space-xl;
+  position: relative;
+
+  &::before {
+    @include circuit-line;
+    top: -1px;
+    left: 0;
+    right: 0;
+  }
+
+  &__inner {
+    @include container;
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: $space-3xl;
+    gap: $space-lg;
+
+    @include respond-to(md) {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+      align-items: flex-start;
+    }
+  }
+
+  &__brand {
+    max-width: 300px;
+  }
+
+  &__logo {
+    font-family: $font-display;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: $color-text-primary;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: $space-sm;
+
+    span {
+      color: $color-accent;
+    }
+  }
+
+  &__desc {
+    font-size: 0.9rem;
+    color: $color-text-secondary;
+  }
+
+  &__info {
+    text-align: center;
+    @include respond-to(md) {
+      text-align: right;
+    }
+  }
+
+  &__uni {
+    font-family: $font-display;
+    font-size: 1.1rem;
+    color: $color-text-primary;
+    margin-bottom: $space-xs;
+  }
+
+  &__dept {
+    font-size: 0.9rem;
+    color: $color-text-secondary;
+    margin-bottom: $space-sm;
+  }
+
+  &__contact {
+    font-family: $font-mono;
+    font-size: 0.8rem;
+    color: $color-accent;
+  }
+
+  &__bottom {
+    border-top: 1px solid rgba($color-border, 0.5);
+    padding-top: $space-xl;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-md;
+
+    @include respond-to(md) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__copyright {
+    font-size: 0.85rem;
+    color: $color-text-muted;
+  }
+
+  &__badges {
+    display: flex;
+    gap: $space-md;
+  }
+
+  &__badge {
+    font-family: $font-mono;
+    font-size: 0.65rem;
+    color: $color-text-secondary;
+    border: 1px solid $color-border;
+    padding: 4px 8px;
+    border-radius: $radius-sm;
+    letter-spacing: 0.05em;
+  }
+}

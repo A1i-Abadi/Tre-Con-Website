@@ -1,0 +1,241 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.methodology {
+  @include section-padding;
+  position: relative;
+  background: $color-bg-secondary;
+
+  // Subtle circuit trace
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $color-border-accent, transparent);
+  }
+
+  &__inner {
+    @include container;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: $space-4xl;
+  }
+
+  &__label {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-sm;
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    color: $color-accent;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: $space-md;
+
+    &::before,
+    &::after {
+      content: '';
+      width: 30px;
+      height: 1px;
+      background: $color-border-accent;
+    }
+  }
+
+  &__title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: $color-text-primary;
+    margin-bottom: $space-md;
+  }
+
+  &__subtitle {
+    font-family: $font-body;
+    font-size: 1rem;
+    color: $color-text-secondary;
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 400;
+  }
+
+  // Pipeline timeline
+  &__pipeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto $space-4xl;
+
+    // Vertical center line
+    &::before {
+      content: '';
+      position: absolute;
+      left: 24px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, $color-accent, $color-border-accent, transparent);
+
+      @include respond-to(md) {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  &__step {
+    display: flex;
+    align-items: flex-start;
+    gap: $space-xl;
+    margin-bottom: $space-2xl;
+    position: relative;
+
+    @include respond-to(md) {
+      &:nth-child(odd) {
+        flex-direction: row;
+        .methodology__step-content {
+          margin-left: auto;
+          text-align: left;
+        }
+      }
+
+      &:nth-child(even) {
+        flex-direction: row-reverse;
+        .methodology__step-content {
+          margin-right: auto;
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  &__step-node {
+    width: 50px;
+    min-width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid $color-accent;
+    border-radius: 50%;
+    background: $color-bg-secondary;
+    font-family: $font-mono;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: $color-accent;
+    position: relative;
+    z-index: $z-base;
+    animation: nodePulse 3s ease-in-out infinite;
+
+    @include respond-to(md) {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__step-content {
+    flex: 1;
+    @include tech-card;
+    padding: $space-xl $space-2xl;
+
+    @include respond-to(md) {
+      width: calc(50% - 50px);
+    }
+  }
+
+  &__step-label {
+    font-family: $font-mono;
+    font-size: 0.65rem;
+    color: $color-accent;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: $space-xs;
+    opacity: 0.7;
+  }
+
+  &__step-title {
+    font-family: $font-display;
+    font-size: 1.05rem;
+    color: $color-text-primary;
+    margin-bottom: $space-sm;
+  }
+
+  &__step-desc {
+    font-size: 0.88rem;
+    color: $color-text-secondary;
+    line-height: 1.7;
+  }
+
+  // Block diagram
+  &__diagram {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  &__diagram-title {
+    font-family: $font-mono;
+    font-size: 0.8rem;
+    color: $color-accent;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: $space-2xl;
+  }
+
+  &__diagram-flow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-md;
+
+    @include respond-to(md) {
+      flex-direction: row;
+      justify-content: center;
+      gap: 0;
+    }
+  }
+
+  &__block {
+    @include tech-card;
+    padding: $space-lg $space-xl;
+    text-align: center;
+    min-width: 150px;
+    position: relative;
+
+    &:hover {
+      .methodology__block-icon {
+        color: $color-accent-bright;
+        transform: scale(1.15);
+      }
+    }
+  }
+
+  &__block-icon {
+    font-size: 1.5rem;
+    color: $color-accent;
+    margin-bottom: $space-sm;
+    transition: transform $transition-normal, color $transition-normal;
+    display: block;
+  }
+
+  &__block-label {
+    font-family: $font-mono;
+    font-size: 0.7rem;
+    color: $color-text-secondary;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  &__arrow {
+    color: $color-accent;
+    font-size: 1.2rem;
+    opacity: 0.5;
+    flex-shrink: 0;
+
+    @include respond-to(md) {
+      margin: 0 $space-sm;
+    }
+  }
+}
