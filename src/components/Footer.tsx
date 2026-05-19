@@ -12,17 +12,17 @@ export default function Footer() {
               Tre<span>-</span>Con
             </div>
             <p className="footer__desc">
-              Precision Biomedical System.<br />
-              Senior Electrical Engineering Design Project.
+              Smart wristband for Parkinson's tremor detection and FES treatment support.<br />
+              Senior Design Project.
             </p>
           </div>
 
           <div className="footer__info">
-            <h4 className="footer__uni">University Name</h4>
-            <p className="footer__dept">Department of Electrical Engineering</p>
-            <a href="mailto:contact@trecon.edu" className="footer__contact">
+            <h4 className="footer__uni">University of Bahrain (UOB)</h4>
+            <p className="footer__dept">Department of Electrical & Electronics Engineering</p>
+            {/* <a href="mailto:contact@trecon.edu" className="footer__contact">
               contact@trecon.edu
-            </a>
+            </a> */}
           </div>
         </div>
 
@@ -32,8 +32,8 @@ export default function Footer() {
           </p>
           
           <div className="footer__badges">
-            <span className="footer__badge">Biomedical</span>
-            <span className="footer__badge">Precision Eng</span>
+            <span className="footer__badge">Tremor Monitoring</span>
+            <span className="footer__badge">FES Support</span>
           </div>
         </div>
       </div>

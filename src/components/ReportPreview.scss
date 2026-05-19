@@ -1,0 +1,212 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.report-preview {
+  @include section-padding;
+  position: relative;
+  background: $color-bg-primary;
+
+  &__inner {
+    @include container;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: $space-4xl;
+  }
+
+  &__label {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-sm;
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    color: $color-accent;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: $space-md;
+
+    &::before,
+    &::after {
+      content: '';
+      width: 30px;
+      height: 1px;
+      background: $color-border-accent;
+    }
+  }
+
+  &__title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: $color-text-primary;
+    margin-bottom: $space-md;
+  }
+
+  &__subtitle {
+    font-family: $font-body;
+    font-size: 1rem;
+    color: $color-text-secondary;
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 400;
+  }
+
+  // Carousel
+  &__carousel {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__viewer {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    position: relative;
+    border: 1px solid $color-border;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    background: $color-bg-secondary;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    margin-bottom: $space-xl;
+
+    @include respond-to(md) {
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  &__slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: scale(0.98);
+    display: flex;
+    flex-direction: column;
+
+    &.active {
+      opacity: 1;
+      transform: scale(1);
+      z-index: 2;
+    }
+  }
+
+  &__slide-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 1;
+    background: $color-bg-secondary;
+  }
+
+  &__slide-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba($color-bg-primary, 0.95) 0%, transparent 100%);
+    padding: $space-2xl $space-xl $space-lg;
+    text-align: center;
+  }
+
+  &__slide-title {
+    font-family: $font-display;
+    font-size: 1.2rem;
+    color: $color-accent;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba($color-accent, 0.5);
+  }
+
+  // Navigation
+  &__controls {
+    display: flex;
+    align-items: center;
+    gap: $space-lg;
+    margin-bottom: $space-xl;
+  }
+
+  &__btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid $color-border-accent;
+    background: rgba($color-accent, 0.05);
+    color: $color-accent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: all $transition-normal;
+
+    &:hover:not(:disabled) {
+      background: $color-accent;
+      color: $color-bg-primary;
+      box-shadow: 0 0 15px $color-accent-glow;
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+  }
+
+  &__counter {
+    font-family: $font-mono;
+    font-size: 0.9rem;
+    color: $color-text-secondary;
+    min-width: 60px;
+    text-align: center;
+
+    span {
+      color: $color-text-primary;
+      font-weight: 700;
+    }
+  }
+
+  // Thumbnails
+  &__thumbnails {
+    display: flex;
+    gap: $space-sm;
+    max-width: 100%;
+    overflow-x: auto;
+    padding-bottom: $space-sm;
+    
+    // Hide scrollbar but keep functionality
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  &__thumb {
+    width: 80px;
+    height: 50px;
+    flex-shrink: 0;
+    border: 1px solid $color-border;
+    border-radius: $radius-sm;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all $transition-normal;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &:hover {
+      opacity: 0.8;
+      border-color: rgba($color-accent, 0.5);
+    }
+
+    &.active {
+      opacity: 1;
+      border-color: $color-accent;
+      box-shadow: 0 0 10px rgba($color-accent, 0.3);
+    }
+  }
+}

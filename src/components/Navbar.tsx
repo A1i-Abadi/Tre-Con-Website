@@ -6,6 +6,8 @@ const navLinks = [
   { label: 'Methodology', href: '#methodology' },
   { label: 'Gallery', href: '#gallery' },
   { label: 'Report', href: '#report' },
+  { label: 'Preview', href: '#report-preview' },
+  { label: 'Advisors', href: '#doctors' },
   { label: 'Team', href: '#team' },
 ];
 

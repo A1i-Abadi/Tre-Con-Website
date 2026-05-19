@@ -7,19 +7,19 @@ const features = [
     icon: <TbPlugConnected />,
     label: 'Dependency',
     title: 'Independent Operation',
-    description: 'Trained to act separately, ensuring robust performance even under varying conditions and isolated subsystem scenarios.',
+    description: 'Trained to act separately, ensuring robust and autonomous performance under varying conditions.',
   },
   {
     icon: <TbTargetArrow />,
     label: 'Accuracy',
-    title: 'High-Fidelity Data',
-    description: 'Delivering a close result to real-world data collected, validated through rigorous testing and calibration protocols.',
+    title: 'Precision Fidelity',
+    description: 'Delivering a close result to the real data collected, validated through systematic testing.',
   },
   {
     icon: <TbShieldCheck />,
     label: 'Reliability',
-    title: 'Adaptable & Dependable',
-    description: 'Built to reliably fit different requirements, maintaining consistent output across diverse operational parameters.',
+    title: 'Adaptable Fit',
+    description: 'Engineered to reliably fit different requirements, keeping performance consistent across applications.',
   },
 ];
 
@@ -33,7 +33,7 @@ export default function Features() {
           <span className="features__label">Core System</span>
           <h2 className="features__title">System Principles</h2>
           <p className="features__subtitle">
-            The foundational pillars driving Tre-Con's biomedical precision architecture.
+            Tre-Con is a precision-engineered biomedical system built and tested as part of our senior design project.
           </p>
         </div>
 

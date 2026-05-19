@@ -12,34 +12,26 @@ interface GalleryItem {
 const galleryItems: GalleryItem[] = [
   {
     src: '/images/trecon-device.jpeg',
-    tag: 'Primary Device',
-    title: 'TRE-CON DEVICE LAYOUT',
+    tag: 'Hardware',
+    title: 'THE TRE-CON WRISTBAND',
     caption:
-      'Shows the central blue control unit, orange retention strap, and the ECG electrode set with color-coded leads for signal acquisition.',
+      'The fully integrated 3D-printed modular wristband featuring EMG and IMU sensors for real-time tremor detection and analysis.',
     featured: true,
   },
   {
-    src: '/images/trecon-device.jpeg',
-    tag: 'Signal Testing',
-    title: 'SIGNAL ACQUISITION TEST',
+    src: '/images/trecon-device-2.jpeg',
+    tag: 'Software Integration',
+    title: 'REAL-TIME MONITORING',
     caption:
-      'Live testing phase demonstrating real-time ECG waveform capture through the electrode interface. Signal integrity validated at 500Hz sampling.',
+      'Seamless data synchronization displaying precise kinematic motion and muscle activity data for clinical review.',
     featured: false,
   },
   {
-    src: '/images/trecon-device.jpeg',
-    tag: 'Circuit Board',
-    title: 'PCB ASSEMBLY',
+    src: '/images/trecon-device-3.jpeg',
+    tag: 'Active Therapy',
+    title: 'FES STIMULATION UNIT',
     caption:
-      'Custom-designed PCB housing the instrumentation amplifier, bandpass filter network, and microcontroller unit for signal digitization.',
-    featured: false,
-  },
-  {
-    src: '/images/trecon-device.jpeg',
-    tag: 'Calibration',
-    title: 'SYSTEM CALIBRATION',
-    caption:
-      'Precision calibration procedure ensuring data fidelity against reference medical-grade equipment. Accuracy validated within ±2% tolerance.',
+      'The Functional Electrical Stimulation (FES) module, designed to deliver targeted support for active tremor suppression.',
     featured: false,
   },
 ];

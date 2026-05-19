@@ -20,20 +20,19 @@ export default function Hero() {
       <div className="hero__content">
         <div className="hero__badge">
           <span className="hero__badge-dot" />
-          Senior Design Project 2025
+          Senior Design Project
         </div>
 
         <h1 className="hero__title">Tre-Con</h1>
 
         <p className="hero__subtitle">
-          Electrical Engineering
+          Department of Electrical & Electronics Engineering
           <span className="separator" />
-          Biomedical Precision System
+          UOB
         </p>
 
         <p className="hero__tagline">
-          <strong>Tre-Con</strong> is a precision-engineered biomedical system
-          built and tested as part of our senior design project.
+          <strong>Tre-Con</strong> is a smart wristband for tremor detection and treatment support in Parkinson’s disease
         </p>
 
         <a href="#features" className="hero__cta" id="explore-cta">
